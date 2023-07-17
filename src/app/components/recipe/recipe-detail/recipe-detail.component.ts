@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -7,6 +7,11 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent {
+  isClicked=false;
+  
+  @HostListener('mouseleave') onmouseleave(){
+    this.isClicked=false;
+    }
 @Input() recipeDetail:Recipe={name:'',description:'',imagePath:''};
 
 

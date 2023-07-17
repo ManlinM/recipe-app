@@ -9,13 +9,16 @@
                 <li><a href="#" (click)="onSelect('recipe')">Recipe</a></li>
                 <li><a href="#" (click)="onSelect('shopping-list')">Shopping List</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" role="button">Manage dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
+            <ul class="nav navbar-nav navbar-right " >
+                <li class="dropdown open">
+                    
+                    <a (click)="isClicked =!isClicked" href="#" class="dropdown-toggle" role="button">Manage dropdown <span class="caret"></span></a>
+                    
+                    <ul *appDropdown="isClicked" class="dropdown-menu">
                         <li><a href="#">Save Data</a></li>
                         <li><a href="#">Fetch Data</a></li>
                     </ul>
+                
                 </li>
             </ul>
         </div>

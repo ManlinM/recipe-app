@@ -45,4 +45,26 @@
             - utilized @Output to pass input value to the parent 'shopping-list' component
                 - implements an event which emitt data, obtained from input fields, to the parent component
             - The 'shopping-list' component listens for the event and stores the emitted data
-            
+
+
+## Part 3
+- implemented custom directives to activate dropdown menus
+### Task
+- Add functionality to menus: when clicked, the dropdown will display, and when unclicked, the dropdown will disappear
+  - To achieve this:
+    - Created a directive class in the shared folder
+    - used @Directive annotation
+      - declared selector to use on element
+    - Defined a property with @Input which allows to receive a boolean value from the parent
+      - injected 2 dependencies, which creates and render the view based on the provided template
+    - Used the customized directive as structural directive on the element
+      - Used the selector with '*' as structural directives, to where the contion is needed
+      - pass the conditional value to the property
+      - change the conditional value whenever button is clicked
+- I used the above approach to conditionally display the content based on the 'condition' value
+### Instructor's approach
+- Used @HostBinding annotation to bind the CSS class open, which will show the dropdown if applied
+  - when set to false 'open' is removed, and when true 'open' is added
+- Used @HostListener to toggle the event 'click'
+  - when setted element is clicked property defined for 'open' is set to the opposite
+- This approach, only need to add the custom directive to the element as an attribute
